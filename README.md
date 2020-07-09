@@ -29,3 +29,5 @@ The program provides 2 distinct output files. The file with the **singleton.fq**
   
 Possible events of integration of viral genomes in the genome of the host can be identified by mapping **singleton.fq** and **partial.fq**  against a reference assembly of the human genome (Please refer to [this repository ](https://github.com/bfosso/SDATA_bio_Desc), for more detailed instructions on how to map the reads and process the output).  Genomic positions where reads are eventually mapped, should be indicative of the integration site.
 Please notice that in the original paper by Passaro et al 2019 no reads or pairs of reads that would support the integration of any virus into the genome of the host could be detected.
+
+To facilitate the analyses of the data, a fasta file of viral genome assemblies, as obtained in the original study is also incorporated in this repository. See viral_seq_Passaro_et_al.fa
