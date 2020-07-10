@@ -14,11 +14,11 @@ while(<IN>)
 	$lm2=length($seq_r2)."M";
 	next if( $pos_r1 eq $pos_r2 & $cigar_r1 eq $lm1 & $cigar_r2 eq $lm2);
 	print "$pos_r1 $pos_r2\n" if $pos_r1 ne $pos_r2;
-	if ($pos_r1 eq "*" && $pos_r2 ne "*")
+	if ($cigar_r1 eq "*" && $pos_r1 ne "*")
 	{
 		print OUT "\@$id1\n$seq_r1\n+$id1\n$q_r1\n";
 		next;
-	}elsif($pos_r1 ne "*" && $pos_r2 eq "*"){
+	}elsif($cigar_r2 eq "*" && $pos_r2 ne "*"){
 		print OUT "\@$id2\n$seq_r2\n+$id2\n$q_r2\n";
 		next;
 	}
@@ -26,6 +26,7 @@ while(<IN>)
 	{
 		@num=split(/\D+/,$cigar_r2);
         	@lett=split(/\d+/,$cigar_r2);
+		shift(@lett);
 		shift(@lett);
         	$M=0;
         	for ($i=0;$i<=$#num;$i++)
